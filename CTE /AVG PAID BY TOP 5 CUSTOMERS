@@ -1,0 +1,28 @@
+## Query to find the average amount paid by the top 5 customers ##
+
+SELECT 
+AVG (amount_paid) AS "average"
+FROM
+  (SELECT A.first_name,
+  A.last_name,
+   A.customer_id,
+  D.country, C.city,
+SUM (E.amount) AS amount_paid
+FROM 
+ customer A
+INNER JOIN 
+ address B ON A.address_id = B.address_id
+INNER JOIN 
+ city C ON B.city_id = C.city_id
+INNER JOIN 
+ country D ON C.country_id = D.country_id
+INNER JOIN 
+ payment E ON A.customer_id = E.customer_id
+WHERE 
+ city IN ('Aurora', 'Acua', 'Citrus Heights', 'Iwaki', 'Ambattur', 'Shanwei', 'So Leopoldo', 'Teboksary', 'Tianjin', 'Cianjur')
+GROUP BY  
+  country, city, A.customer_id, first_name, last_name
+ORDER BY    
+  amount_paid DESC 
+  LIMIT 5) 
+  AS amount_paid
