@@ -1,6 +1,6 @@
 # SQL
 ## Rockbuster Stealth Data Analysis Project
-### Key Qiestions and Objectives
+### Key Questions and Objectives
 The Rockbuster Stealth Management expects data-driven answers that they can use for their 2020 company strategy. 
 ● Which movies contributed the most/least to revenue gain?
 ● What was the average rental duration for all videos?
